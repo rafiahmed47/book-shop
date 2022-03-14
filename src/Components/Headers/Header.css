@@ -1,0 +1,18 @@
+#header{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.navbar a {
+    text-decoration: none;
+    margin: 0 20px;
+}
+.navbar button{
+    background-color: aqua;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
