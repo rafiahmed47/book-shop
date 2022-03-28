@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -15,16 +15,18 @@ import Register from "./Components/Login/Register";
 
 
 function App() {
+  const [user, setUser] = useState({})
   return (
     <div className="App">
       <BrowserRouter>
-      <Headers/>
+      
+      <Headers user={user}/>
         <Routes>
           <Route path='/' element={<Home/>}></Route>
           <Route path='/order' element={<Order/>}></Route>
           <Route path='/admin' element={<Admin/>}></Route>
           <Route path='/deal' element={<Deal/>}></Route>
-          <Route path='/login' element={<Login/>}></Route>
+          <Route path='/login' element={<Login user={user} setUser={setUser}/>}></Route>
           <Route path='/register' element={<Register/>}></Route>
         </Routes>
       </BrowserRouter>

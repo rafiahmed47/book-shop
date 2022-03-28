@@ -1,10 +1,9 @@
 .card{
-    background-color: blanchedalmond;
-    height: 300px;
+    height: 22rem;
     width: 250px;
     margin: 30px 30px;
-    border: 1px solid black;
-    border-radius: 5px;
+    padding: 35px 10px;
+    border: 1px solid rgb(218, 216, 216);
 }
 .card img {
     height: 200px;

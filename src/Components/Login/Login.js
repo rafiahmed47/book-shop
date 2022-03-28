@@ -1,32 +1,35 @@
-import { Button, Container, TextField, Typography } from '@mui/material';
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Button, Container, TextField, Typography } from "@mui/material";
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import initializeAuthentication from "../../Firebase/firebase.init";
 
-const Login = () => {
-    return (
-        <Container>
-            <TextField
-                sx={{ width: "50%", m: 1 }}
-                id="demo-helper-text-misaligned-no-helper"
-                label="Name"
-                name="name"
-            />
-            <br />
-            <TextField
-                sx={{ width: "50%", m: 1 }}
-                id="demo-helper-text-misaligned-no-helper"
-                label="Name"
-            />
-            <br />
-            <Button
-                sx={{ width: "50%", m: 1 }}
-                variant="contained">Login
-                </Button>
-            <NavLink to="/register">
-                <Typography>New User? Register Now!</Typography>
-            </NavLink>
-        </Container>
-    );
+initializeAuthentication();
+const provider = new GoogleAuthProvider();
+
+const Login = ({ user, setUser }) => {
+  const handleGoogleSignIn = () => {
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // const credential = GoogleAuthProvider.credentialFromResult(result);
+        // const token = credential.accessToken;
+        const user = result.user;
+        setUser(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  };
+
+  return (
+    <Container>
+      <Button sx={{ width: "50%", m: 1 }} onClick={handleGoogleSignIn}>
+        Google Sign in
+      </Button>
+    </Container>
+  );
 };
 
 export default Login;
