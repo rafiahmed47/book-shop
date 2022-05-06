@@ -7,8 +7,9 @@ import { Button, Typography } from '@mui/material';
 const Products = (props) => {
     const {name, photoUrl, price, author} = props.books;
 
-    const handleOrder = ({books}) =>{
-        const url = 'http://localhost:4000/order'
+    const handleOrder = (props) =>{
+        const books = props;
+        const url = 'https://blooming-forest-10862.herokuapp.com/order'
         fetch(url, {
             method: 'POST',
             headers:{

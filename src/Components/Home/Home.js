@@ -9,13 +9,12 @@ const Home = () => {
   const [books, setBooks] = useState([]);
   const [searchBook, setSearchBook] = useState('')
   useEffect(() => {
-    fetch("http://localhost:4000/books")
+    fetch("https://blooming-forest-10862.herokuapp.com/books")
       .then((res) => res.json())
       .then((data) => {
           // setBooks(data)
           const filteredData = data?.filter((book) => book.name.toLocaleLowerCase().includes(searchBook.toLocaleLowerCase()))
           setBooks(filteredData)
-          // console.log(filteredData)
       });
   }, [searchBook]);
 

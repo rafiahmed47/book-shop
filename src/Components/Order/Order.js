@@ -6,7 +6,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 const Order = () => {
   const [order, setOrder] = useState([]);
   useEffect(() => {
-    const url = "http://localhost:4000/orders";
+    const url = "https://blooming-forest-10862.herokuapp.com/orders";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrder(data));
@@ -17,7 +17,7 @@ const Order = () => {
     const proceed = window.confirm("are you really want to delete?");
     if (proceed) {
       console.log("proceed successfully");
-      const url = `http://localhost:4000/deleteOrder/${order._id}`;
+      const url = `https://blooming-forest-10862.herokuapp.com/deleteOrder/${order._id}`;
 
       fetch(url, {
         method: "DELETE",

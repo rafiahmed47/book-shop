@@ -15,7 +15,7 @@ const Admin = () => {
         console.log(nameRef, photoUrl)
         const newProduct = {name, photoUrl, price, author}
         console.log(newProduct)
-        const url = 'http://localhost:4000/addBooks'
+        const url = 'https://blooming-forest-10862.herokuapp.com/addBooks'
     fetch(url, {
         method: 'POST',
         headers:{

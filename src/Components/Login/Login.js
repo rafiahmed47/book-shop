@@ -2,7 +2,7 @@ import { Button, Container, TextField, Typography } from "@mui/material";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import initializeAuthentication from "../../Firebase/firebase.init";
+import initializeAuthentication from "./Firebase/firebase.init";
 
 initializeAuthentication();
 const provider = new GoogleAuthProvider();
